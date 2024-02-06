@@ -42,7 +42,7 @@ class _AddTodoPageState extends State<AddTodoPage> {
         children: [
           TextField(
             controller: titlecontroller,
-            decoration: const InputDecoration(hintText: 'Title'),
+            decoration: const InputDecoration(hintText: 'Title',),
           ),
           const SizedBox(
             height: 20,
@@ -60,8 +60,9 @@ class _AddTodoPageState extends State<AddTodoPage> {
             height: 20,
           ),
           ElevatedButton(
+            style: ButtonStyle( backgroundColor: MaterialStateProperty.all(Colors.yellow),),
             onPressed:isEdit?updateData: submitData ,
-            child:  Text(isEdit?'Update' :'Submit'),
+            child:  Text(isEdit?'Update' :'Submit',style:const TextStyle(color: Colors.black),),
           ),
         ],
       ),
@@ -76,7 +77,7 @@ class _AddTodoPageState extends State<AddTodoPage> {
     }
     final id=todo['_id'];
    // final isCompleted=todo['is_completed'];
-     final title = titlecontroller.text;
+    final title = titlecontroller.text;
     final description = descriptioncontroller.text;
 
     final body = {
@@ -95,7 +96,8 @@ class _AddTodoPageState extends State<AddTodoPage> {
       headers: {'Content-Type': 'application/json'},
     );
     if (response.statusCode == 200) {
-      
+      titlecontroller.text='';
+      descriptioncontroller.text='';
       successMessage('Updation Success');
     } else {
       errorMessage('Updation Failed');

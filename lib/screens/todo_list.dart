@@ -43,15 +43,17 @@ class _TodoListPageState extends State<TodoListPage> {
               child: Text('No Todo Item',
               style: Theme.of(context).textTheme.headlineSmall,
               ),
-
+              
             ),
             child: ListView.builder(
+              
               itemCount: items.length,
               padding: const EdgeInsets.all(12),
               itemBuilder: (context, index) {
                 final item = items[index] as Map;
                // final id = item['_id'] as String;
                 return TodoCard(
+                  
                   deleteById: deleteById,
                   index: index,
                   item: item,
@@ -67,6 +69,7 @@ class _TodoListPageState extends State<TodoListPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: Colors.yellow,
         onPressed: naviageteToAddPage,
         label: const Text('Add Todo'),
       ),

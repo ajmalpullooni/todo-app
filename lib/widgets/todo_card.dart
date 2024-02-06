@@ -8,13 +8,20 @@ class TodoCard extends StatelessWidget {
   const TodoCard({
     super.key,
     required this.index,
-    required this.item, required this.navigateEdit, required this.deleteById,
+    required this.item,
+    required this.navigateEdit,
+    required this.deleteById,
   });
 
   @override
-  Widget build(BuildContext context) {  
-    final id=item['_id'] as String;
+  Widget build(BuildContext context) {
+    final id = item['_id'] as String;
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(
+          10,
+        ),
+      ),
       child: ListTile(
         leading: CircleAvatar(
           child: Text('${index + 1}'),
@@ -46,5 +53,8 @@ class TodoCard extends StatelessWidget {
         ),
       ),
     );
+  }
+  void popupmenuButton(){
+    
   }
 }
